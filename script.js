@@ -103,7 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (item.originalPrice === undefined) {
                 item.originalPrice = item.price;
             }
-            item.price = item.originalPrice * (1 - totalDiscount);
+            if (item.price > 0) {
+                item.price = item.originalPrice * (1 - totalDiscount);
+            }
         });
     
         updateCart();
