@@ -88,14 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let totalDiscount = 0.3; // 30% off on all items
     
         // Check for Triple Feast Combo 40% off
-        if (cart.length >= 3) {
+        let realItemsCount = cart.filter(item => item.fixedPrice !== 0).length;
+        if (realItemsCount >= 3) {
             totalDiscount = Math.max(totalDiscount, 0.4); // Apply the larger discount
         }
     
         // Check for "Buy 2 Pizzas and Get a Free Drink" offer
         const pizzaCount = cart.filter(item => item.name.toLowerCase().includes('pizza')).length;
-        if (pizzaCount >= 2 && !cart.some(item => item.name === 'Drink' && item.price === 0)) {
-            cart.push({ name: 'Drink', price: 0, originalPrice: 3.50 }); // Assuming the original price of a drink is $3.50
+        if (pizzaCount >= 2 && !cart.some(item => item.name === 'Drink' && item.fixedPrice === 0)) {
+            cart.push({ name: 'Drink', fixedPrice: 0, originalPrice: 3.50 }); // Assuming the original price of a drink is $3.50
         }
     
         // Apply discounts
@@ -103,7 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (item.originalPrice === undefined) {
                 item.originalPrice = item.price;
             }
-            if (item.price > 0) {
+            if (item.fixedPrice !== undefined) {
+                item.price = item.fixedPrice
+            } else {
                 item.price = item.originalPrice * (1 - totalDiscount);
             }
         });
