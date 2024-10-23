@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="blog.css">
     <link rel="short icon" href="image/short_icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function subscribe(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const name = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+
+            if (name && email) {
+                alert(`Thank you for subscribing, ${name}! We will send updates to ${email}.`);
+            } else {
+                alert('Please enter both your name and email.');
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -24,7 +37,7 @@
             <li><a href="about.html"><b>About</b></a></li>
             <li><a href="menu.html"><b>Menu</b></a></li>
             <li><a href="gallery.html"><b>Gallery</b></a></li>
-            <li><a href="blog.html"class="action"><b>Blog</b></a></li>
+            <li><a href="blog.html"class="action"><b>Reviews</b></a></li>
         </ul>
 
 
@@ -35,7 +48,7 @@
     <!--Banner-->
 
     <div class="banner_bg">
-        <h1>Our<span>Blog</span></h1>
+        <h1>Our<span>Reviews</span></h1>
     </div>
 
 
@@ -451,23 +464,18 @@
 
     <!--Banner-->
 
-    <div class="blog_banner">
-
-        <div class="blog_banner_tag">
-            <h2>Subscribe<br><span>& Stay Updated</span></h2>
-        </div>
-
-        <form>
-
-            <input type="text" placeholder="You name">
-            <div class="blog_sub">
-                <input type="email" class="email" placeholder="You email">
-                <button type="submit">SUBSRIBE</button>
+            <div class="blog_banner">
+                <div class="blog_banner_tag">
+                    <h2>Subscribe<br><span>& Stay Updated</span></h2>
+                </div>
+                <form onsubmit="subscribe(event)"> <!-- Added onsubmit event -->
+                    <input type="text" placeholder="Your name" required>
+                    <div class="blog_sub">
+                        <input type="email" class="email" placeholder="Your email" required>
+                        <button type="submit">SUBSCRIBE</button>
+                    </div>
+                </form>
             </div>
-
-        </form>
-
-    </div>
 
 
 
