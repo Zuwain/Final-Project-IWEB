@@ -140,7 +140,7 @@ section .main .main_text .btn:hover::before{
 }
 
 section .main .main_image img{
-    width: 650px;
+    width: 750px;
     animation: animate 5s linear infinite;
 }
 
@@ -151,11 +151,11 @@ section .main .main_image img{
 
 .about{
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     padding: 10px 0 0 0;
     background-image: url(image/about_bg.png);
     background-size: cover;
-    background-position: center;
+    background-position: relative;
 }
 
 .about .about_main{
@@ -633,7 +633,7 @@ section .main .main_image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: relative;
 }
 
 .offer .offer_box .offer_card_2 .offer_tag{
