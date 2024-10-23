@@ -149,17 +149,30 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCart() {
         cartItems.innerHTML = '';
         let total = 0;
-        cart.forEach(item => {
+        cart.forEach((item, index) => {
             const cartItem = document.createElement('div');
-            cartItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-            if (item.originalPrice > item.price) {
-                cartItem.textContent += ` (Original: $${item.originalPrice.toFixed(2)})`;
-            }
+            cartItem.classList.add('cart-item'); // Add a class for styling
+            cartItem.innerHTML = `
+                ${item.name} - $${item.price.toFixed(2)}
+                <button class="remove-btn" data-index="${index}">Remove</button>
+            `;
+            
+            // Add event listener for the remove button
+            cartItem.querySelector('.remove-btn').addEventListener('click', () => {
+                removeFromCart(index);
+            });
+    
             cartItems.appendChild(cartItem);
             total += item.price;
         });
         totalPrice.textContent = total.toFixed(2);
         cartCount.textContent = cart.length;
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1); // Remove the item from the cart array
+        updateCart(); // Update the cart display
+        displayConfirmation(`Item removed from cart!`); // Optional: display a confirmation message
     }
 
     // Checkout functionality
