@@ -553,6 +553,21 @@ footer .end span{
     border-radius: 5px;
     z-index: 1000;
 }
+
+.remove-btn {
+    background-color: #FF4C4C; /* Red background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px; /* Space between text and button */
+}
+
+.remove-btn:hover {
+    background-color: #FF0000; /* Darker red on hover */
+}
+
 @keyframes moveup{
     100%{
         opacity: 1;
