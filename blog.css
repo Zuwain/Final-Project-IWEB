@@ -395,6 +395,21 @@ footer .end span{
     animation: moveup 0.5s linear forwards;
 }
 
+@media screen and (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 5px;
+    }
+  }
+
+  
 @keyframes moveup{
     100%{
         transform: translateY(0);
