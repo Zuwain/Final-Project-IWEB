@@ -55,20 +55,6 @@ section nav ul li a:hover{
     color: #FFBD59;
 }
 
-section nav .login a{
-    color: #000;
-    text-decoration: none;
-    border: 2px solid #FFBD59;
-    border-radius: 20px;
-    padding: 7px 20px;
-    transition: 0.3s;
-}
-
-section nav .login a:hover{
-    background: #FFBD59;
-    color: #fff;
-}
-
 section .main{
     display: flex;
     align-items: center;
@@ -1184,6 +1170,20 @@ footer .end span{
     transform: translateY(40px);
     animation: moveup 0.5s linear forwards;
 }
+
+@media screen and (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 5px;
+    }
+  }
 
 @keyframes moveup{
     100%{
