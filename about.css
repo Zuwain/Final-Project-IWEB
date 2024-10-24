@@ -256,6 +256,21 @@ footer .end span {
     opacity: 0;
 }
 
+@media screen and (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 5px;
+    }
+  }
+
+
 @keyframes moveup {
     100% {
         opacity: 1;
